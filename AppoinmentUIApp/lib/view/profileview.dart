@@ -46,7 +46,7 @@ class _ProfileViewState extends State<ProfileView> {
     return SizedBox(
       width: pageWidth * 0.3,
       child: Card(
-        elevation: 0,
+        elevation: 8,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
