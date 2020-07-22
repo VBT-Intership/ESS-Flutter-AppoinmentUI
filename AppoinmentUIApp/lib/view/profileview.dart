@@ -7,6 +7,7 @@ class ProfileView extends StatefulWidget {
 
 class _ProfileViewState extends State<ProfileView> {
   get pageWidth => MediaQuery.of(context).size.width;
+  get pageHeight => MediaQuery.of(context).size.height;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +15,34 @@ class _ProfileViewState extends State<ProfileView> {
       body: ListView(
         children: <Widget>[
           buildCircleProfileImage(),
+          SizedBox(height: pageHeight * 0.05),
+          buildProfileName(context),
+          SizedBox(height: pageHeight * 0.02),
+          buildProfileTitle(context)
         ],
+      ),
+    );
+  }
+
+  Center buildProfileTitle(BuildContext context) {
+    return Center(
+      child: Text(
+        "Viragolist",
+        style: Theme.of(context).primaryTextTheme.bodyText1.copyWith(
+              color: Colors.grey[700],
+            ),
+      ),
+    );
+  }
+
+  Center buildProfileName(BuildContext context) {
+    return Center(
+      child: Text(
+        "Dr.Ebubekir Sezer",
+        style: Theme.of(context).primaryTextTheme.headline6.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
       ),
     );
   }
