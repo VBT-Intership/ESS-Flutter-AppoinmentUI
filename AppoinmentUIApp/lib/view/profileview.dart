@@ -32,11 +32,32 @@ class _ProfileViewState extends State<ProfileView> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         buildInformationCards(
-            context, Colors.blue, Icon(Icons.people), "1000+", "Patients"),
+            context,
+            Colors.blue[100],
+            Icon(
+              Icons.people,
+              color: Colors.blue[700],
+            ),
+            "1000+",
+            "Patients"),
         buildInformationCards(
-            context, Colors.red, Icon(Icons.person), "10 Yrs", "Experience"),
+            context,
+            Colors.red[100],
+            Icon(
+              Icons.person,
+              color: Colors.red[700],
+            ),
+            "10 Yrs",
+            "Experience"),
         buildInformationCards(
-            context, Colors.yellow, Icon(Icons.star_border), "4.5", "Ratings"),
+            context,
+            Colors.yellow[100],
+            Icon(
+              Icons.star_border,
+              color: Colors.yellow[700],
+            ),
+            "4.5",
+            "Ratings"),
       ],
     ));
   }
@@ -46,7 +67,7 @@ class _ProfileViewState extends State<ProfileView> {
     return SizedBox(
       width: pageWidth * 0.3,
       child: Card(
-        elevation: 8,
+        elevation: 3,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
