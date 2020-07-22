@@ -19,17 +19,26 @@ class _ProfileViewState extends State<ProfileView> {
           buildProfileName(context),
           SizedBox(height: pageHeight * 0.02),
           buildProfileTitle(context),
-          Expanded(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              buildInformationCards(
-                  context, Colors.blue, Icon(Icons.cloud), "1000+", "Ebubekir")
-            ],
-          ))
+          SizedBox(height: pageHeight * 0.05),
+          buildAllInformationCards(context)
         ],
       ),
     );
+  }
+
+  Expanded buildAllInformationCards(BuildContext context) {
+    return Expanded(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        buildInformationCards(
+            context, Colors.blue, Icon(Icons.people), "1000+", "Patients"),
+        buildInformationCards(
+            context, Colors.red, Icon(Icons.person), "10 Yrs", "Experience"),
+        buildInformationCards(
+            context, Colors.yellow, Icon(Icons.star_border), "4.5", "Ratings"),
+      ],
+    ));
   }
 
   SizedBox buildInformationCards(BuildContext context, Color color, Icon icon,
@@ -43,7 +52,7 @@ class _ProfileViewState extends State<ProfileView> {
         ),
         child: Column(
           children: <Widget>[
-            buildColorfulRectangleType(icon),
+            buildColorfulRectangleType(icon, color),
             SizedBox(
               height: pageHeight * 0.03,
             ),
@@ -59,7 +68,7 @@ class _ProfileViewState extends State<ProfileView> {
             Text(
               secondTitle,
               style: Theme.of(context).primaryTextTheme.bodyText1.copyWith(
-                    color: Colors.black,
+                    color: Colors.grey[700],
                   ),
             ),
             SizedBox(
@@ -71,14 +80,14 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 
-  ClipRRect buildColorfulRectangleType(Icon icon) {
+  ClipRRect buildColorfulRectangleType(Icon icon, Color color) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(15.0),
         bottomRight: Radius.circular(15.0),
       ),
       child: ColoredBox(
-        color: Colors.blue,
+        color: color,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
