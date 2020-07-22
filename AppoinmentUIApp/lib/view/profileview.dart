@@ -18,8 +18,78 @@ class _ProfileViewState extends State<ProfileView> {
           SizedBox(height: pageHeight * 0.05),
           buildProfileName(context),
           SizedBox(height: pageHeight * 0.02),
-          buildProfileTitle(context)
+          buildProfileTitle(context),
+          Expanded(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              buildInformationCards(
+                  context, Colors.blue, Icon(Icons.cloud), "1000+", "Ebubekir")
+            ],
+          ))
         ],
+      ),
+    );
+  }
+
+  SizedBox buildInformationCards(BuildContext context, Color color, Icon icon,
+      String firstTitle, String secondTitle) {
+    return SizedBox(
+      width: pageWidth * 0.3,
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Column(
+          children: <Widget>[
+            buildColorfulRectangleType(icon),
+            SizedBox(
+              height: pageHeight * 0.03,
+            ),
+            Text(
+              firstTitle,
+              style: Theme.of(context).primaryTextTheme.headline6.copyWith(
+                    color: Colors.black,
+                  ),
+            ),
+            SizedBox(
+              height: pageHeight * 0.01,
+            ),
+            Text(
+              secondTitle,
+              style: Theme.of(context).primaryTextTheme.bodyText1.copyWith(
+                    color: Colors.black,
+                  ),
+            ),
+            SizedBox(
+              height: pageHeight * 0.02,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  ClipRRect buildColorfulRectangleType(Icon icon) {
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(15.0),
+        bottomRight: Radius.circular(15.0),
+      ),
+      child: ColoredBox(
+        color: Colors.blue,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 20,
+              ),
+              icon,
+            ],
+          ),
+        ),
       ),
     );
   }
