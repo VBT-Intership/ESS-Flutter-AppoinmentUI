@@ -82,6 +82,26 @@ class _ProfileViewState extends State<ProfileView> {
                     "Messaging",
                     "Chat me up, share photos",
                   ),
+                  buildCommunicationCards(
+                    context,
+                    Colors.blue[100],
+                    Icon(
+                      Icons.call,
+                      color: Colors.blue[700],
+                    ),
+                    "Audio Call",
+                    "Call your doctor directly",
+                  ),
+                  buildCommunicationCards(
+                    context,
+                    Colors.yellow[100],
+                    Icon(
+                      Icons.videocam,
+                      color: Colors.yellow[700],
+                    ),
+                    "Video Call",
+                    "See your doctor live",
+                  ),
                 ],
               ),
             ),
