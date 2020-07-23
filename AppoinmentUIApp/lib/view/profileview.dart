@@ -72,39 +72,50 @@ class _ProfileViewState extends State<ProfileView> {
                               ),
                     ),
                   ),
-                  ListTile(
-                    leading: Container(
-                      width: pageWidth * 0.15,
-                      height: pageHeight * 0.07,
-                      decoration: BoxDecoration(
-                        color: Colors.red[100],
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      ),
-                      child: Icon(
-                        Icons.chat,
-                        color: Colors.red[700],
-                      ),
+                  buildCommunicationCards(
+                    context,
+                    Colors.red[100],
+                    Icon(
+                      Icons.chat,
+                      color: Colors.red[700],
                     ),
-                    title: Text(
-                      "Messaging",
-                      style: Theme.of(context)
-                          .primaryTextTheme
-                          .headline6
-                          .copyWith(color: Colors.black, fontSize: 18.0),
-                    ),
-                    subtitle: Text(
-                      "Chat me up, share photos",
-                      style: Theme.of(context)
-                          .primaryTextTheme
-                          .bodyText1
-                          .copyWith(color: Colors.grey),
-                    ),
-                  )
+                    "Messaging",
+                    "Chat me up, share photos",
+                  ),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  ListTile buildCommunicationCards(BuildContext context, Color color, Icon icon,
+      String titleText, String bodyText) {
+    return ListTile(
+      leading: Container(
+        width: pageWidth * 0.15,
+        height: pageHeight * 0.07,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        child: icon,
+      ),
+      title: Text(
+        titleText,
+        style: Theme.of(context)
+            .primaryTextTheme
+            .headline6
+            .copyWith(color: Colors.black, fontSize: 18.0),
+      ),
+      subtitle: Text(
+        bodyText,
+        style: Theme.of(context)
+            .primaryTextTheme
+            .bodyText1
+            .copyWith(color: Colors.grey),
       ),
     );
   }
