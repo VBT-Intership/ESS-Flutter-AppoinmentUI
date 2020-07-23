@@ -20,15 +20,97 @@ class _ProfileViewState extends State<ProfileView> {
           SizedBox(height: pageHeight * 0.02),
           buildProfileTitle(context),
           SizedBox(height: pageHeight * 0.05),
-          buildAllInformationCards(context)
+          buildAllInformationCards(context),
+          SizedBox(height: pageHeight * 0.02),
+          Container(
+            child: Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "About Doctor",
+                      style:
+                          Theme.of(context).primaryTextTheme.headline6.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 10.0, right: 10.0, bottom: 10.0),
+                    child: Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae arcu ullamcorper, ullamcorper sem id, dapibus nulla. Aliquam ac nibh placerat, congue turpis ut, imperdiet sapien. Proin eget nisl non sem laoreet facilisis. Duis elit tellus, eleifend et mi id, faucibus maximus ipsum."),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Working Time",
+                      style:
+                          Theme.of(context).primaryTextTheme.headline6.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 10.0, right: 10.0, bottom: 10.0),
+                    child: Text("Mon - Sat (08:30 AM - 09:00 PM)"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Communication",
+                      style:
+                          Theme.of(context).primaryTextTheme.headline6.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Container(
+                      width: pageWidth * 0.15,
+                      height: pageHeight * 0.07,
+                      decoration: BoxDecoration(
+                        color: Colors.red[100],
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      ),
+                      child: Icon(
+                        Icons.chat,
+                        color: Colors.red[700],
+                      ),
+                    ),
+                    title: Text(
+                      "Messaging",
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .headline6
+                          .copyWith(color: Colors.black, fontSize: 18.0),
+                    ),
+                    subtitle: Text(
+                      "Chat me up, share photos",
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .bodyText1
+                          .copyWith(color: Colors.grey),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Expanded buildAllInformationCards(BuildContext context) {
-    return Expanded(
-        child: Row(
+  Row buildAllInformationCards(BuildContext context) {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         buildInformationCards(
@@ -59,7 +141,7 @@ class _ProfileViewState extends State<ProfileView> {
             "4.5",
             "Ratings"),
       ],
-    ));
+    );
   }
 
   SizedBox buildInformationCards(BuildContext context, Color color, Icon icon,
