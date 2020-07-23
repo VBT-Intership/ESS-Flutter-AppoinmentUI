@@ -14,139 +14,141 @@ class _ProfileViewState extends State<ProfileView> {
       appBar: buildAppBar(),
       body: Column(
         children: [
-          Expanded(
-            flex: 11,
-            child: ListView(
-              children: <Widget>[
-                buildCircleProfileImage(),
-                SizedBox(height: pageHeight * 0.05),
-                buildProfileName(context),
-                SizedBox(height: pageHeight * 0.02),
-                buildProfileTitle(context),
-                SizedBox(height: pageHeight * 0.05),
-                buildAllInformationCards(context),
-                SizedBox(height: pageHeight * 0.02),
-                Container(
-                  child: Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            "About Doctor",
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headline6
-                                .copyWith(
-                                  color: Colors.black,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 10.0, right: 10.0, bottom: 10.0),
-                          child: Text(
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae arcu ullamcorper, ullamcorper sem id, dapibus nulla. Aliquam ac nibh placerat, congue turpis ut, imperdiet sapien. Proin eget nisl non sem laoreet facilisis. Duis elit tellus, eleifend et mi id, faucibus maximus ipsum."),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            "Working Time",
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headline6
-                                .copyWith(
-                                  color: Colors.black,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 10.0, right: 10.0, bottom: 10.0),
-                          child: Text("Mon - Sat (08:30 AM - 09:00 PM)"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            "Communication",
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headline6
-                                .copyWith(
-                                  color: Colors.black,
-                                ),
-                          ),
-                        ),
-                        buildCommunicationCards(
-                          context,
-                          Colors.red[100],
-                          Icon(
-                            Icons.chat,
-                            color: Colors.red[700],
-                          ),
-                          "Messaging",
-                          "Chat me up, share photos",
-                        ),
-                        buildCommunicationCards(
-                          context,
-                          Colors.blue[100],
-                          Icon(
-                            Icons.call,
-                            color: Colors.blue[700],
-                          ),
-                          "Audio Call",
-                          "Call your doctor directly",
-                        ),
-                        buildCommunicationCards(
-                          context,
-                          Colors.yellow[100],
-                          Icon(
-                            Icons.videocam,
-                            color: Colors.yellow[700],
-                          ),
-                          "Video Call",
-                          "See your doctor live",
-                        ),
-                      ],
+          buildProfileInformationList(context),
+          buildAppoinmentButton(context),
+        ],
+      ),
+    );
+  }
+
+  Expanded buildProfileInformationList(BuildContext context) {
+    return Expanded(
+      flex: 11,
+      child: ListView(
+        children: <Widget>[
+          buildCircleProfileImage(),
+          SizedBox(height: pageHeight * 0.05),
+          buildProfileName(context),
+          SizedBox(height: pageHeight * 0.02),
+          buildProfileTitle(context),
+          SizedBox(height: pageHeight * 0.05),
+          buildAllInformationCards(context),
+          SizedBox(height: pageHeight * 0.02),
+          Container(
+            child: Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "About Doctor",
+                      style:
+                          Theme.of(context).primaryTextTheme.headline6.copyWith(
+                                color: Colors.black,
+                              ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Colors.white,
-              padding: EdgeInsets.only(
-                left: 8.0,
-                right: 8.0,
-                bottom: 8.0,
-                top: 0.0,
-              ),
-              width: MediaQuery.of(context).size.width,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                color: Colors.green[200],
-                child: Text(
-                  "Book Appoinment",
-                  style: Theme.of(context).primaryTextTheme.headline6.copyWith(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
-                ),
-                onPressed: () {},
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 10.0, right: 10.0, bottom: 10.0),
+                    child: Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae arcu ullamcorper, ullamcorper sem id, dapibus nulla. Aliquam ac nibh placerat, congue turpis ut, imperdiet sapien. Proin eget nisl non sem laoreet facilisis. Duis elit tellus, eleifend et mi id, faucibus maximus ipsum."),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Working Time",
+                      style:
+                          Theme.of(context).primaryTextTheme.headline6.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 10.0, right: 10.0, bottom: 10.0),
+                    child: Text("Mon - Sat (08:30 AM - 09:00 PM)"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Communication",
+                      style:
+                          Theme.of(context).primaryTextTheme.headline6.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
+                  ),
+                  buildCommunicationCards(
+                    context,
+                    Colors.red[100],
+                    Icon(
+                      Icons.chat,
+                      color: Colors.red[700],
+                    ),
+                    "Messaging",
+                    "Chat me up, share photos",
+                  ),
+                  buildCommunicationCards(
+                    context,
+                    Colors.blue[100],
+                    Icon(
+                      Icons.call,
+                      color: Colors.blue[700],
+                    ),
+                    "Audio Call",
+                    "Call your doctor directly",
+                  ),
+                  buildCommunicationCards(
+                    context,
+                    Colors.yellow[100],
+                    Icon(
+                      Icons.videocam,
+                      color: Colors.yellow[700],
+                    ),
+                    "Video Call",
+                    "See your doctor live",
+                  ),
+                ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Expanded buildAppoinmentButton(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: Container(
+        color: Colors.white,
+        padding: EdgeInsets.only(
+          left: 8.0,
+          right: 8.0,
+          bottom: 8.0,
+          top: 0.0,
+        ),
+        width: MediaQuery.of(context).size.width,
+        child: RaisedButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          color: Colors.green[200],
+          child: Text(
+            "Book Appoinment",
+            style: Theme.of(context).primaryTextTheme.headline6.copyWith(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                ),
+          ),
+          onPressed: () {},
+        ),
       ),
     );
   }
